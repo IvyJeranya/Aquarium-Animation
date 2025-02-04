@@ -1,0 +1,144 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: white;
+}
+
+.aquarium {
+    position: relative;
+    width: 1000px;
+    height: 500px;
+    background-color: #1E90FF;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #333;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Aquarium bottom section with decorative elements */
+.bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background-color: #884e24;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+}
+
+/* Static decorations (non-animated) */
+#decor-1 {
+    width: 250px;
+    transform: none; 
+}
+
+#decor-2 {
+    width: 200px;
+    transform: none; 
+}
+
+/* Animated decoration (swaying effect) */
+#decor-3 {
+    width: 80px;
+    animation-name: sway;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* Plant decorations with animation */
+.plant {
+    position: absolute;
+    bottom: 100px;
+    animation-name: sway;
+    animation-duration: 4s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* Individual plant elements positioning and animation */
+#plant-1 {
+    width: 100px;
+    bottom: 20px;
+    left: 60px;
+}
+
+#plant-2 {
+    width: 80px;
+    left: 900px;
+    bottom: 30px;
+}
+
+#plant-3 {
+    width: 150px;
+    left: 280px;
+    bottom: 40px;
+}
+
+#plant-4 {
+    width: 150px;
+    left: 830px;
+    bottom: 40px;
+}
+
+/* Swaying animation for plants */
+@keyframes sway {
+    0% { transform: rotate(-5.5deg); }
+    100% { transform: rotate(5deg); }
+}
+
+/* Fish animations */
+.fish {
+    position: absolute;
+    width: 100px;
+    animation-name: swim;
+    animation-duration: 10s; /* Standard swimming duration */
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    cursor: pointer;
+}
+
+/* Individual fish positioning and animation duration */
+#fish-1 {
+    top: 50px;
+    animation-duration: 8s;
+}
+
+#fish-2 {
+    top: 200px;
+    animation-duration: 12s;
+}
+
+#fish-3 {
+    top: 300px;
+    animation-duration: 15s;
+}
+
+/* Fish swimming back and forth across the aquarium */
+@keyframes swim {
+    0% {
+        transform: translateX(-100px) scaleX(1);
+    }
+    50% {
+        transform: translateX(1000px) scaleX(1);
+    }
+    51% {
+        transform: translateX(1000px) scaleX(-1);
+    }
+    100% {
+        transform: translateX(-100px) scaleX(-1);
+    }
+}
+
+/* Faster swimming when fish is clicked */
+.fish:active {
+    animation-duration: 5s !important; 
+}
